@@ -1,2 +1,8 @@
 # hyplast-paper
-Hyplast paper and all code to reproduce the analysis and prepare the plots for the publication
+Hyplast paper and all code to reproduce the analysis and prepare the plots for the publication "Predicting Sorption of Contaminants on Microplastics on Heterogeneous Data".
+
+Data preparation - from a JSON like format to a pandas DataFrame - is accomplished with the function [save_raw_data()](https://github.com/simanjo/hyplast-paper/blob/584a14b64ca0d47f5f8af5b5fb657a076840e279/preprocessing/data.py#L213) in the [preprocessing module](preprocessing/data.py). All further analysis expects csv files in the format specified there.
+
+Model training is accomplished by executing the [training script](training/training.py), which expects the data to be stored in a data subfolder (adapt [DATA_DIR](https://github.com/simanjo/hyplast-paper/blob/584a14b64ca0d47f5f8af5b5fb657a076840e279/training/training.py#L57) if necessary). For the addition of the abrahams parameters, a csv file named RMG_SoluteML.csv is required, with a format specified by the output of the [Reaction Mechanism Generator](https://rmg.mit.edu/database/solvation/soluteSearch/) with SoluteML choosen as model (cf [source code](https://github.com/simanjo/hyplast-paper/blob/584a14b64ca0d47f5f8af5b5fb657a076840e279/preprocessing/embeddings.py#L168) for details).
+
+The [plots](plots/) in paper and supplement were produced with the notebooks for the [descriptive analysis](analysis/descriptive_analysis.ipynb) of the dataset, and the [model evaluation](analysis/evaluation.ipynb) plots. The permutation tests were performed with a [notebook](analysis/permutation_tests.ipynb), but due to the inherent difficulties related to running R in jupyter notebooks, an additional [R-script](analysis/permutation_tests.r) is provided.
