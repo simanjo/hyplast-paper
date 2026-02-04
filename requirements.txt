@@ -1,0 +1,15 @@
+pandas==2.3.3
+scipy
+matplotlib
+seaborn
+
+requests
+rdkit
+mol2vec
+gensim
+pubchempy
+
+scikit-learn==1.7.0
+
+ipykernel
+jupyter
